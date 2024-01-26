@@ -9,7 +9,8 @@ function Login(){
     const navigate = useNavigate()
     const handleSubmit=(e)=>{
         e.preventDefault()
-        axios.post('http://localhost:3001/login',{email, password})
+        //axios.post('http://localhost:3001/login',{email, password})
+        axios.post('${process.env.REACT_APP_BACKENDURL}/login',{email, password})
         .then(result => {console.log(result)
             if(result.data === "Success"){
                 navigate('/home')
